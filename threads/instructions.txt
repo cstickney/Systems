@@ -1,0 +1,7 @@
+Assignment 7
+
+Due (via email) before class on Tuesday, April 1st (this is not a joke!).
+
+Re-implement the dining philosophers problem using five POSIX threads spawned from the parent thread. This new implementation will not use any IPC facilities, nor will it fork(). You will need to make either one or five instances of "pthread_mutex" semaphores.
+
+Note: there is a threadsafe version of the randomGaussian procedure in /cs_Share/class/cs360/{lib,src,include} under the names random_r{.o,.c,.h} respectively, which you will need.

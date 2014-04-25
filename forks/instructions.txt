@@ -1,0 +1,17 @@
+Assignment 6:
+
+Due before 5:00PM on Friday, March 14th (thats the Friday just before spring break...)
+
+Write program "philo" (source file name to be "philo.c").  This program must fork 5 child processes, each representing one philosopher.  Using shared memory and/or semaphores, have each philosopher repeat a cycle of eating and thinking until all philosophers have eaten for at least 100 seconds (at which point a philosopher will "leave the table"... terminate).
+
+There are 5 chopsticks at the table (one between each pair of adjacent philosophers).  In order to eat, a philosopher must acquire both the chopsticks adjacent to him/her.  If he/she cannot, they are made to wait until they can.  The wait time does not count as thinking time.  Once they have a pair of chopsticks, they eat for the expected period of time and then replace (release) the chopsticks on the table and begin their period of thinking.  Each philosopher repeats this process until they have eaten for a total of 100 seconds or more.
+
+There is a routine named "randomGaussian" available to you in /cs_Share/class/cs360/(src,lib,include)/random.(c,o,h) that you will use to simulate the random amounts of time that a philosopher eats and thinks.  The mean eating and thinking times shall be 9 and 11 seconds, respectively, with standard deviations of 3 and 7 seconds, respectively.  Obviously, if randomGaussian returns a negative time value, treat it as zero. Simulate the eating or thinking time by calling sleep() for the requisite number of seconds.
+
+You can either represent the chopsticks in a shared IPC memory segment and use a semaphore to "authorize" mutually exclusive access to the shared memory segment, or you can define an array of IPC semaphores, each representing one chopstick.
+
+You can execute my implementation of this program in /cs_Share/class/cs360/bin/philo.  (use -d on the command line to turn on more output) You do not need to match its output exactly, but print enough information about what the philosophers are doing to demonstrate your implementation is functioning correctly.  Note, that does not prevent you from installing as much debugging output as you think you need.
+
+Also, be sure to clean up the IPC artifacts so that you don't leave shared memory and semaphore IDs cluttering up the lab systems.
+
+Submit your philo.c source file via email (to the TA), if necessary, tar it up with a Makefile.

@@ -1,0 +1,17 @@
+Assignment 7b
+
+Due (via email) before class Tuesday, April 8th.
+
+Download the two files sort.h and sort.c
+
+You will be modifying sort.c, but you are not permitted to change sort.h. You will be submitting your version of sort.c which I will compile and link with a test program that will (naturally) depend on you following and not modifying the interface declared in sort.h.
+
+The file sort.c contains a procedure which uses the classic quicksort algorithm to sort an array of strings. The nature of quicksort is that following its partition step, two recursive calls can be made to sort each partition. You may notice that these two "sub" sorts are independent of each other and could each be given its own thread of execution. Of course, the threads that might be created or employed to sort each partition would have to be synchronized at least to the extent that the user's callling thread does not return until all the "sub" sorts are completed (and any created threads are joined or destroyed).
+
+Your task is to multi-thread the supplied sort.c program so that it employs as many threads as it is told to (via a preceding call to setSortThreads()).
+
+This assignment requires you to modify sort.c to make use of as many threads as you are told, in order to sort the given array (assuming the nature of the array is such that all the threads requested can be employed). You may do this using pthread_create() and pthread_join(), although the overhead of creating a thread is significant.
+
+You will want to build a test bed around your sort program, both to test that your code does indeed sort correctly and to time it. Consider calling the library procedure clock() before and after your sortThreaded() procedure is called to find out the performance of your code. You may also want to code up calling the library's qsort() as a benchmark for comparison.
+
+Submit your sort.c file as an email attachment.
